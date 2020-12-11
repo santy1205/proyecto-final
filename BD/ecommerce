@@ -1,0 +1,422 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 04-12-2020 a las 20:04:10
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `ecommerce`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id` int(11) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `pass` varchar(200) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `direccion` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `email`, `pass`, `nombre`, `direccion`) VALUES
+(1, 'Carlos@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Carlos', 'carrera 50'),
+(2, 'ivan@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Ivan', 'CARRERA 50 # 89');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalleventa`
+--
+
+CREATE TABLE `detalleventa` (
+  `id` int(11) NOT NULL,
+  `idProd` int(11) NOT NULL,
+  `idVenta` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `precio` double NOT NULL,
+  `subTotal` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `detalleventa`
+--
+
+INSERT INTO `detalleventa` (`id`, `idProd`, `idVenta`, `cantidad`, `precio`, `subTotal`) VALUES
+(21, 17, 11, 21, 29900, 29900),
+(22, 19, 7, 1, 29000, 29000),
+(23, 8, 1, 1, 100000, 100000);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `files`
+--
+
+CREATE TABLE `files` (
+  `id` int(11) NOT NULL,
+  `filename` varchar(250) NOT NULL,
+  `filesize` int(11) NOT NULL,
+  `web_path` varchar(250) NOT NULL,
+  `system_path` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `files`
+--
+
+INSERT INTO `files` (`id`, `filename`, `filesize`, `web_path`, `system_path`) VALUES
+(1, 'WhatsApp Image 2020-11-09 at 1.34.01 PM (1).jpeg', 62844, '/ecommerce/upload/1.jpeg', 'C:/xampp/htdocs/ecommerce/upload/1.jpeg'),
+(2, '02-12-2019-12-38-58.png', 753867, '/ecommerce/upload/2.png', 'C:/xampp/htdocs/ecommerce/upload/2.png'),
+(3, 'samsung-galaxy-s20-ultra-oficjalne-rendery-removebg-preview-500x500-2-500x500.png', 205415, '/ecommerce/upload/3.png', 'C:/xampp/htdocs/ecommerce/upload/3.png'),
+(4, 'p40-pro-silver.png', 200238, '/ecommerce/upload/4.png', 'C:/xampp/htdocs/ecommerce/upload/4.png'),
+(5, 'Xiaomi_0.png', 349211, '/ecommerce/upload/5.png', 'C:/xampp/htdocs/ecommerce/upload/5.png'),
+(6, 'motorola-one-all-phones-1000-1.png', 224909, '/ecommerce/upload/6.png', 'C:/xampp/htdocs/ecommerce/upload/6.png'),
+(7, 'p40-pro-silver.png', 200238, '/ecommerce/upload/7.png', 'C:/xampp/htdocs/ecommerce/upload/7.png'),
+(8, '8784711_d (1).png', 50870, '/ecommerce/upload/8.png', 'C:/xampp/htdocs/ecommerce/upload/8.png'),
+(9, '8784711_1.png', 117791, '/ecommerce/upload/9.png', 'C:/xampp/htdocs/ecommerce/upload/9.png'),
+(10, '8784711_d.png', 50870, '/ecommerce/upload/10.png', 'C:/xampp/htdocs/ecommerce/upload/10.png'),
+(11, '6787381_1.png', 59971, '/ecommerce/upload/11.png', 'C:/xampp/htdocs/ecommerce/upload/11.png'),
+(12, '6787381_3.png', 43751, '/ecommerce/upload/12.png', 'C:/xampp/htdocs/ecommerce/upload/12.png'),
+(13, '8052959_1.png', 63434, '/ecommerce/upload/13.png', 'C:/xampp/htdocs/ecommerce/upload/13.png'),
+(14, '8052959_6.png', 48477, '/ecommerce/upload/14.png', 'C:/xampp/htdocs/ecommerce/upload/14.png'),
+(15, '7460024_1.png', 51368, '/ecommerce/upload/15.png', 'C:/xampp/htdocs/ecommerce/upload/15.png'),
+(16, '7460024_3.png', 81253, '/ecommerce/upload/16.png', 'C:/xampp/htdocs/ecommerce/upload/16.png'),
+(17, '3636217_3.png', 202180, '/ecommerce/upload/17.png', 'C:/xampp/htdocs/ecommerce/upload/17.png'),
+(18, '3636217_5.png', 44791, '/ecommerce/upload/18.png', 'C:/xampp/htdocs/ecommerce/upload/18.png'),
+(19, '5607777_1.png', 67828, '/ecommerce/upload/19.png', 'C:/xampp/htdocs/ecommerce/upload/19.png'),
+(20, '5607777_6.png', 78345, '/ecommerce/upload/20.png', 'C:/xampp/htdocs/ecommerce/upload/20.png'),
+(21, '5607777_9.png', 52291, '/ecommerce/upload/21.png', 'C:/xampp/htdocs/ecommerce/upload/21.png'),
+(22, 'PowerLine.png', 70719, '/ecommerce/upload/22.png', 'C:/xampp/htdocs/ecommerce/upload/22.png'),
+(23, 'powerbank.png', 67202, '/ecommerce/upload/23.png', 'C:/xampp/htdocs/ecommerce/upload/23.png'),
+(24, 'gatillo.png', 55878, '/ecommerce/upload/24.png', 'C:/xampp/htdocs/ecommerce/upload/24.png'),
+(25, 'micro.png', 146398, '/ecommerce/upload/25.png', 'C:/xampp/htdocs/ecommerce/upload/25.png'),
+(26, 'soporte.png', 51718, '/ecommerce/upload/26.png', 'C:/xampp/htdocs/ecommerce/upload/26.png'),
+(27, '4940794_1.png', 50721, '/ecommerce/upload/27.png', 'C:/xampp/htdocs/ecommerce/upload/27.png'),
+(28, 'cablito.png', 29867, '/ecommerce/upload/28.png', 'C:/xampp/htdocs/ecommerce/upload/28.png'),
+(29, 'audio.png', 64546, '/ecommerce/upload/29.png', 'C:/xampp/htdocs/ecommerce/upload/29.png'),
+(30, '6787381_3.png', 43751, '/ecommerce/upload/30.png', 'C:/xampp/htdocs/ecommerce/upload/30.png');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `precio` double NOT NULL,
+  `existencia` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `nombre`, `precio`, `existencia`) VALUES
+(7, 'Celular Samsung Galaxy Note 20 Ultra 256GB', 549900, 180),
+(8, 'Celular Xiaomi Mi Note 10 LITE 128GB', 179900, 150),
+(9, 'Celular Huawei P40 128GB con HMS', 259900, 120),
+(10, 'Celular Motorola One Fusion Plus 128GB', 169900, 90),
+(11, 'Celular iPhone Xs 256GB', 495900, 60),
+(12, 'Celular Samsung Galaxy Z Flip 256GB', 699900, 30),
+(13, 'PowerLine Micro USB 1.8 m', 19.9, 12),
+(14, 'Power Bank 2200Mah y Cable Usb', 24900, 10),
+(15, 'Gatillo powerbank disparador celular ventilador', 34900, 18),
+(16, 'Memoria Micro SD Sandisk 32GB Cl 10 + Adaptador', 39900, 25),
+(17, 'Soporte Universal De Succión Para Celular Proswat Pro-11H', 24900, 10),
+(18, 'Mini Transmisor Adaptador Audio Bluetooth X6', 23900, 8),
+(19, 'Lightning DD-MICROBFAB3M', 24900, 25),
+(20, 'MI Earbuds Basic II Bluetooth Xiaomi', 107900, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos_files`
+--
+
+CREATE TABLE `productos_files` (
+  `producto_id` int(11) NOT NULL,
+  `file_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `productos_files`
+--
+
+INSERT INTO `productos_files` (`producto_id`, `file_id`) VALUES
+(13, 22),
+(14, 23),
+(15, 24),
+(16, 25),
+(17, 26),
+(19, 28),
+(20, 29),
+(18, 27),
+(9, 13),
+(9, 14),
+(11, 17),
+(11, 18),
+(10, 15),
+(10, 16),
+(7, 9),
+(7, 10),
+(12, 19),
+(12, 20),
+(12, 21),
+(8, 11),
+(8, 12);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `recibe`
+--
+
+CREATE TABLE `recibe` (
+  `id` int(5) NOT NULL,
+  `idCli` int(5) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `direccion` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `recibe`
+--
+
+INSERT INTO `recibe` (`id`, `idCli`, `nombre`, `email`, `direccion`) VALUES
+(1, 1, 'carlos Mario', 'CarlosMario@gmail.com', 'carrera 50 # 89-14\r\n'),
+(5, 2, 'Ivan', 'ivan@gmail.com', 'CARRERA 50 # 89');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `pass` varchar(200) NOT NULL,
+  `nombre` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `email`, `pass`, `nombre`) VALUES
+(1, 'BrandonRios@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Smith'),
+(5, 'smith1@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Brandon'),
+(7, 'juan@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'BrandonRios'),
+(9, 'santiago@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Santiago');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `id` int(11) NOT NULL,
+  `idCli` int(5) NOT NULL,
+  `idPago` varchar(255) NOT NULL,
+  `fecha` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`id`, `idCli`, `idPago`, `fecha`) VALUES
+(1, 1, '0', '2020-12-03 21:43:35'),
+(2, 1, '0', '2020-12-03 21:43:37'),
+(3, 1, '0', '2020-12-03 21:50:31'),
+(4, 1, '0', '2020-12-03 21:50:33'),
+(5, 1, '0', '2020-12-03 22:42:54'),
+(6, 1, '0', '2020-12-03 22:44:31'),
+(7, 1, '0', '2020-12-03 22:47:11'),
+(8, 1, '0', '2020-12-03 22:52:03'),
+(9, 1, '0', '2020-12-03 22:53:49'),
+(10, 1, '0', '2020-12-03 23:01:03'),
+(11, 1, '0', '2020-12-03 23:02:33'),
+(12, 1, '0', '2020-12-03 23:02:56'),
+(13, 1, '0', '2020-12-03 23:09:21'),
+(14, 1, '0', '2020-12-03 23:13:49'),
+(15, 1, '0', '2020-12-03 23:16:50'),
+(16, 1, '0', '2020-12-03 23:16:51'),
+(17, 1, '0', '2020-12-03 23:17:35'),
+(18, 1, '0', '2020-12-03 23:23:34'),
+(19, 1, '0', '2020-12-03 23:33:00'),
+(20, 1, '0', '2020-12-03 23:47:30'),
+(22, 1, '0', '2020-12-04 00:29:36'),
+(23, 1, '0', '2020-12-04 00:34:20'),
+(24, 1, '0', '2020-12-04 00:35:39'),
+(25, 1, '0', '2020-12-04 00:46:38'),
+(26, 1, '0', '2020-12-04 00:50:42'),
+(27, 1, '0', '2020-12-04 01:17:13'),
+(28, 1, '0', '2020-12-04 01:32:03'),
+(29, 1, '0', '2020-12-04 01:32:50'),
+(30, 1, '0', '2020-12-04 01:41:11'),
+(31, 1, '0', '2020-12-04 01:41:53'),
+(32, 1, '0', '2020-12-04 01:42:40'),
+(33, 1, '0', '2020-12-04 01:45:36'),
+(34, 1, 'ch_1HuYetDYu3Lo8OqOvQ58XFum', '2020-12-04 02:24:51'),
+(35, 1, 'ch_1HuZamDYu3Lo8OqOR2pyTzlU', '2020-12-04 03:24:41'),
+(36, 1, 'ch_1HuZkBDYu3Lo8OqOUQjHjMrd', '2020-12-04 03:34:23'),
+(37, 1, 'ch_1HuZkyDYu3Lo8OqOwO9Ns6y0', '2020-12-04 03:35:12'),
+(38, 1, 'ch_1HuiDyDYu3Lo8OqOcQfQVinS', '2020-12-04 12:37:43'),
+(39, 1, 'ch_1HuiGBDYu3Lo8OqOiIRLXB7m', '2020-12-04 12:39:59'),
+(40, 1, 'ch_1HuiGZDYu3Lo8OqO9w5jaFxg', '2020-12-04 12:40:24'),
+(41, 1, 'ch_1HuiGmDYu3Lo8OqOKB8tWN9Y', '2020-12-04 12:40:36'),
+(42, 1, 'ch_1HuiHHDYu3Lo8OqOMKoQgUoG', '2020-12-04 12:41:08'),
+(43, 1, 'ch_1HuiHoDYu3Lo8OqOMXKEuoT9', '2020-12-04 12:41:41'),
+(44, 1, 'ch_1HuiIZDYu3Lo8OqOtdeUL5tW', '2020-12-04 12:42:28'),
+(45, 1, 'ch_1HuiJlDYu3Lo8OqOaXHcIpRY', '2020-12-04 12:43:42'),
+(46, 1, 'ch_1HuiMADYu3Lo8OqOMEPWrKyU', '2020-12-04 12:46:11'),
+(47, 1, 'ch_1HuiOcDYu3Lo8OqOaV0YFGgF', '2020-12-04 12:48:43'),
+(48, 1, 'ch_1HuiQQDYu3Lo8OqOq2cmngzi', '2020-12-04 12:50:34'),
+(49, 1, 'ch_1HuiRrDYu3Lo8OqOUXycbuAw', '2020-12-04 12:52:04'),
+(50, 1, 'ch_1HujGMDYu3Lo8OqOuQbv6U3P', '2020-12-04 13:44:15'),
+(51, 1, 'ch_1HujInDYu3Lo8OqOvI18G5jD', '2020-12-04 13:46:45');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `kEmail` (`email`);
+
+--
+-- Indices de la tabla `detalleventa`
+--
+ALTER TABLE `detalleventa`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FkIdProd` (`idProd`),
+  ADD KEY `fkIdVenta` (`idVenta`);
+
+--
+-- Indices de la tabla `files`
+--
+ALTER TABLE `files`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `recibe`
+--
+ALTER TABLE `recibe`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `fkIdCli` (`idCli`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fkidCli` (`idCli`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `detalleventa`
+--
+ALTER TABLE `detalleventa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT de la tabla `files`
+--
+ALTER TABLE `files`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de la tabla `recibe`
+--
+ALTER TABLE `recibe`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `detalleventa`
+--
+ALTER TABLE `detalleventa`
+  ADD CONSTRAINT `idProd` FOREIGN KEY (`idProd`) REFERENCES `productos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `idVenta` FOREIGN KEY (`idVenta`) REFERENCES `ventas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD CONSTRAINT `IdCli` FOREIGN KEY (`idCli`) REFERENCES `clientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
